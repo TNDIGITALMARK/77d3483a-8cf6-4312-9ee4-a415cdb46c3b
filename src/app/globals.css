@@ -1,48 +1,77 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/*
+=============================================================================
+CATCONNECT DESIGN SYSTEM
+=============================================================================
+Design inspired by "Purrfect Paws" reference
+Color Palette: Warm creams, soft grays, coral orange accents, sage green touches
+Typography: Modern sans-serif with friendly, approachable feel
+Layout: Card-based, generous whitespace, 8px grid system
 */
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
+  /* === BRAND COLORS === */
+  /* Warm cream/beige backgrounds */
+  --background: 40 40% 97%;
+  --foreground: 210 20% 20%;
 
+  /* Card system - white with subtle warmth */
   --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
+  --card-foreground: 210 20% 20%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
+  --popover-foreground: 210 20% 20%;
 
-  --primary: 222.2 47.4% 11.2%;
-  --primary-foreground: 210 40% 98%;
+  /* Primary - Warm coral/orange for CTAs */
+  --primary: 18 70% 62%;
+  --primary-foreground: 0 0% 100%;
 
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
+  /* Secondary - Soft teal/blue-gray */
+  --secondary: 174 20% 60%;
+  --secondary-foreground: 0 0% 100%;
 
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
+  /* Muted - Soft cream for subtle backgrounds */
+  --muted: 40 30% 94%;
+  --muted-foreground: 210 15% 45%;
 
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
+  /* Accent - Sage green */
+  --accent: 145 25% 60%;
+  --accent-foreground: 0 0% 100%;
 
   --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive-foreground: 0 0% 100%;
 
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 222.2 84% 4.9%;
+  /* Borders - Very light warm gray */
+  --border: 40 20% 88%;
+  --input: 40 20% 88%;
+  --ring: 18 70% 62%;
 
-  --radius: 0.5rem;
+  /* Border radius for rounded corners */
+  --radius: 0.75rem;
 
+  /* Sidebar (if used) */
   --sidebar-background: 0 0% 98%;
-  --sidebar-foreground: 240 5.3% 26.1%;
-  --sidebar-primary: 240 5.9% 10%;
-  --sidebar-primary-foreground: 0 0% 98%;
-  --sidebar-accent: 240 4.8% 95.9%;
-  --sidebar-accent-foreground: 240 5.9% 10%;
-  --sidebar-border: 220 13% 91%;
-  --sidebar-ring: 217.2 91.2% 59.8%;
+  --sidebar-foreground: 210 20% 20%;
+  --sidebar-primary: 18 70% 62%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 40 30% 94%;
+  --sidebar-accent-foreground: 210 20% 20%;
+  --sidebar-border: 40 20% 88%;
+  --sidebar-ring: 18 70% 62%;
+
+  /* === CUSTOM DESIGN TOKENS === */
+  /* Typography */
+  --font-heading: 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 .dark {
@@ -153,11 +182,158 @@ All colors MUST be HSL.
   }
 }
 
+/* === GLOBAL RESETS === */
 * {
   border-color: hsl(var(--border));
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  margin: 0;
+  padding: 0;
+}
+
+/* === TYPOGRAPHY SYSTEM === */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: hsl(var(--foreground));
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.875rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: hsl(var(--primary) / 0.8);
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+/* === COMPONENT DEFAULTS === */
+button {
+  font-family: var(--font-body);
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+input, textarea, select {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  border-radius: calc(var(--radius) - 4px);
+  border: 1px solid hsl(var(--border));
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px hsl(var(--ring) / 0.1);
+}
+
+/* === UTILITY CLASSES === */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.card {
+  background: hsl(var(--card));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-primary {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.1s ease;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: hsl(var(--primary) / 0.9);
+  transform: scale(1.02);
+}
+
+/* === RESPONSIVE IMAGES === */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }

@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Elegant Flora Boutique",
-  description: "Beautiful AI-powered website creation platform",
+  title: "Purrfect Paws - Discover Your Perfect Feline Companion",
+  description: "Explore cat breeds, learn essential care tips, and connect with the feline community. Your ultimate guide to finding and caring for your perfect cat.",
 };
 
 export default function RootLayout({
