@@ -1,77 +1,76 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
 /*
 =============================================================================
-CATCONNECT DESIGN SYSTEM
+MINIMAL DESIGN SYSTEM
 =============================================================================
-Design inspired by "Purrfect Paws" reference
-Color Palette: Warm creams, soft grays, coral orange accents, sage green touches
-Typography: Modern sans-serif with friendly, approachable feel
-Layout: Card-based, generous whitespace, 8px grid system
+Philosophy: Less is more
+Color Palette: Pure blacks, whites, subtle grays
+Typography: Clean Inter font with precise spacing
+Layout: Generous whitespace, subtle borders, no shadows
 */
 
 :root {
-  /* === BRAND COLORS === */
-  /* Warm cream/beige backgrounds */
-  --background: 40 40% 97%;
-  --foreground: 210 20% 20%;
+  /* === MINIMAL COLOR SYSTEM === */
+  /* Pure monochrome palette */
+  --background: 0 0% 100%;
+  --foreground: 0 0% 9%;
 
-  /* Card system - white with subtle warmth */
+  /* Card system - pure white with hairline borders */
   --card: 0 0% 100%;
-  --card-foreground: 210 20% 20%;
+  --card-foreground: 0 0% 9%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 210 20% 20%;
+  --popover-foreground: 0 0% 9%;
 
-  /* Primary - Warm coral/orange for CTAs */
-  --primary: 18 70% 62%;
-  --primary-foreground: 0 0% 100%;
+  /* Primary - Pure black for emphasis */
+  --primary: 0 0% 9%;
+  --primary-foreground: 0 0% 98%;
 
-  /* Secondary - Soft teal/blue-gray */
-  --secondary: 174 20% 60%;
-  --secondary-foreground: 0 0% 100%;
+  /* Secondary - Light gray for subtle elements */
+  --secondary: 0 0% 96%;
+  --secondary-foreground: 0 0% 9%;
 
-  /* Muted - Soft cream for subtle backgrounds */
-  --muted: 40 30% 94%;
-  --muted-foreground: 210 15% 45%;
+  /* Muted - Very light gray */
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 45%;
 
-  /* Accent - Sage green */
-  --accent: 145 25% 60%;
-  --accent-foreground: 0 0% 100%;
+  /* Accent - Mid gray */
+  --accent: 0 0% 90%;
+  --accent-foreground: 0 0% 9%;
 
   --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 100%;
+  --destructive-foreground: 0 0% 98%;
 
-  /* Borders - Very light warm gray */
-  --border: 40 20% 88%;
-  --input: 40 20% 88%;
-  --ring: 18 70% 62%;
+  /* Borders - Subtle hairline gray */
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --ring: 0 0% 9%;
 
-  /* Border radius for rounded corners */
-  --radius: 0.75rem;
+  /* Minimal border radius */
+  --radius: 0.25rem;
 
-  /* Sidebar (if used) */
+  /* Sidebar */
   --sidebar-background: 0 0% 98%;
-  --sidebar-foreground: 210 20% 20%;
-  --sidebar-primary: 18 70% 62%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 40 30% 94%;
-  --sidebar-accent-foreground: 210 20% 20%;
-  --sidebar-border: 40 20% 88%;
-  --sidebar-ring: 18 70% 62%;
+  --sidebar-foreground: 0 0% 9%;
+  --sidebar-primary: 0 0% 9%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 0 0% 96%;
+  --sidebar-accent-foreground: 0 0% 9%;
+  --sidebar-border: 0 0% 90%;
+  --sidebar-ring: 0 0% 9%;
 
-  /* === CUSTOM DESIGN TOKENS === */
-  /* Typography */
-  --font-heading: 'Poppins', system-ui, -apple-system, sans-serif;
+  /* === TYPOGRAPHY === */
+  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'Geist Mono', ui-monospace, monospace;
+  --font-mono: ui-monospace, monospace;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  /* Minimal shadows - barely perceptible */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.02);
+  --shadow-md: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 1px 4px 0 rgb(0 0 0 / 0.08);
+  --shadow-xl: 0 2px 8px 0 rgb(0 0 0 / 0.1);
 }
 
 .dark {
@@ -207,64 +206,67 @@ body {
 /* === TYPOGRAPHY SYSTEM === */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.2;
+  font-weight: 500;
+  line-height: 1.1;
   margin-top: 0;
   margin-bottom: 1rem;
   color: hsl(var(--foreground));
-}
-
-h1 {
-  font-size: 3rem;
-  font-weight: 800;
   letter-spacing: -0.02em;
 }
 
+h1 {
+  font-size: 3.5rem;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+
 h2 {
-  font-size: 2.25rem;
-  font-weight: 700;
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
 }
 
 h3 {
-  font-size: 1.875rem;
-  font-weight: 600;
+  font-size: 1.75rem;
+  font-weight: 400;
 }
 
 h4 {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 500;
 }
 
 h5 {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 h6 {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
 }
 
 p {
   margin-top: 0;
   margin-bottom: 1rem;
-  line-height: 1.7;
+  line-height: 1.65;
+  font-weight: 400;
 }
 
 a {
-  color: hsl(var(--primary));
+  color: hsl(var(--foreground));
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: opacity 0.15s ease;
 }
 
 a:hover {
-  color: hsl(var(--primary) / 0.8);
+  opacity: 0.6;
 }
 
 strong, b {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* === COMPONENT DEFAULTS === */
@@ -294,41 +296,41 @@ input:focus, textarea:focus, select:focus {
 /* === UTILITY CLASSES === */
 .container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
 .section {
-  padding: 5rem 0;
+  padding: 6rem 0;
 }
 
 .card {
   background: hsl(var(--card));
   border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
+  border: 1px solid hsl(var(--border));
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.15s ease;
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  border-color: hsl(var(--foreground));
 }
 
 .btn-primary {
   background: hsl(var(--primary));
   color: hsl(var(--primary-foreground));
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.75rem;
   border-radius: var(--radius);
-  font-weight: 600;
-  transition: background 0.2s ease, transform 0.1s ease;
+  font-weight: 400;
+  font-size: 0.9375rem;
+  transition: opacity 0.15s ease;
   display: inline-block;
+  border: 1px solid hsl(var(--primary));
 }
 
 .btn-primary:hover {
-  background: hsl(var(--primary) / 0.9);
-  transform: scale(1.02);
+  opacity: 0.8;
 }
 
 /* === RESPONSIVE IMAGES === */

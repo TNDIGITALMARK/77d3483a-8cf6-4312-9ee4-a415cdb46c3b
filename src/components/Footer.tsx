@@ -5,56 +5,55 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary text-secondary-foreground mt-auto">
-      <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="border-t border-border mt-auto">
+      <div className="container py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand Column */}
           <div className="md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-3xl">🐾</span>
-              <span className="text-lg font-bold" style={{ fontFamily: 'var(--font-heading)' }}>
+            <div className="mb-4">
+              <span className="text-sm font-medium tracking-wide">
                 Purrfect Paws
               </span>
             </div>
-            <p className="text-sm opacity-90 mb-4">
+            <p className="text-sm text-muted-foreground mb-6">
               Discover the world of cats and find your perfect feline companion.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="hover:opacity-70 transition-opacity" aria-label="Facebook">
-                <Facebook size={20} />
+              <a href="#" className="text-foreground/40 hover:text-foreground transition-colors" aria-label="Facebook">
+                <Facebook size={18} />
               </a>
-              <a href="#" className="hover:opacity-70 transition-opacity" aria-label="Twitter">
-                <Twitter size={20} />
+              <a href="#" className="text-foreground/40 hover:text-foreground transition-colors" aria-label="Twitter">
+                <Twitter size={18} />
               </a>
-              <a href="#" className="hover:opacity-70 transition-opacity" aria-label="Instagram">
-                <Instagram size={20} />
+              <a href="#" className="text-foreground/40 hover:text-foreground transition-colors" aria-label="Instagram">
+                <Instagram size={18} />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h3 className="text-sm font-medium mb-4">
               Quick Links
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               <li>
-                <Link href="/" className="text-sm hover:opacity-70 transition-opacity">
+                <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/breeds" className="text-sm hover:opacity-70 transition-opacity">
+                <Link href="/breeds" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Cat Breeds
                 </Link>
               </li>
               <li>
-                <Link href="/care" className="text-sm hover:opacity-70 transition-opacity">
+                <Link href="/care" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Care Tips
                 </Link>
               </li>
               <li>
-                <Link href="#gallery" className="text-sm hover:opacity-70 transition-opacity">
+                <Link href="#gallery" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Gallery
                 </Link>
               </li>
@@ -63,27 +62,27 @@ export default function Footer() {
 
           {/* Resources */}
           <div>
-            <h3 className="font-semibold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h3 className="text-sm font-medium mb-4">
               Resources
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-sm hover:opacity-70 transition-opacity">
+                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm hover:opacity-70 transition-opacity">
+                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm hover:opacity-70 transition-opacity">
+                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm hover:opacity-70 transition-opacity">
+                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Contact Us
                 </Link>
               </li>
@@ -92,21 +91,21 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h3 className="font-semibold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h3 className="text-sm font-medium mb-4">
               Newsletter
             </h3>
-            <p className="text-sm opacity-90 mb-4">
+            <p className="text-sm text-muted-foreground mb-4">
               Subscribe to get cat care tips and updates.
             </p>
             <form className="flex flex-col gap-2">
               <input
                 type="email"
                 placeholder="Your email"
-                className="px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-secondary-foreground placeholder:text-secondary-foreground/60 focus:outline-none focus:ring-2 focus:ring-white/30"
+                className="px-3 py-2 text-sm bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground"
               />
               <button
                 type="submit"
-                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                className="px-3 py-2 bg-foreground text-background text-sm font-medium hover:opacity-80 transition-opacity"
               >
                 Subscribe
               </button>
@@ -115,7 +114,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 pt-8 border-t border-white/20 text-center text-sm opacity-80">
+        <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
           <p>© {currentYear} Purrfect Paws. All rights reserved.</p>
         </div>
       </div>

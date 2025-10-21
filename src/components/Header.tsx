@@ -16,15 +16,12 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-border shadow-sm">
+    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="text-primary text-3xl transition-transform group-hover:scale-110">
-              🐾
-            </div>
-            <span className="text-xl font-bold text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>
+          <Link href="/" className="flex items-center gap-3 group">
+            <span className="text-sm font-medium tracking-wide hover:opacity-60 transition-opacity">
               Purrfect Paws
             </span>
           </Link>
@@ -35,7 +32,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                className="text-sm text-foreground/60 hover:text-foreground transition-colors"
               >
                 {link.label}
               </Link>
@@ -44,11 +41,11 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden p-2 text-foreground hover:opacity-60 transition-opacity"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
@@ -59,7 +56,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block py-3 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                className="block py-3 text-sm text-foreground/60 hover:text-foreground transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}

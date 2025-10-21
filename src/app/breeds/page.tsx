@@ -108,7 +108,7 @@ export default function BreedsPage() {
           <div
             key={i}
             className={`w-2 h-2 rounded-full ${
-              i < level ? 'bg-primary' : 'bg-muted'
+              i < level ? 'bg-foreground' : 'bg-border'
             }`}
           />
         ))}
@@ -124,7 +124,7 @@ export default function BreedsPage() {
           <Sparkles
             key={i}
             className={`w-4 h-4 ${
-              i < level ? 'text-primary fill-primary' : 'text-muted-foreground/30'
+              i < level ? 'text-foreground fill-foreground' : 'text-border'
             }`}
           />
         ))}
@@ -138,25 +138,25 @@ export default function BreedsPage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-secondary py-16">
+        <section className="border-b border-border py-16">
           <div className="container">
-            <div className="text-center max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-                Discover Cat Breeds
+            <div className="max-w-3xl mx-auto">
+              <h1 className="text-4xl md:text-5xl mb-4">
+                Cat Breeds
               </h1>
-              <p className="text-lg text-secondary-foreground/90 mb-8">
+              <p className="text-base text-muted-foreground mb-8">
                 Explore our comprehensive guide to find your perfect feline companion
               </p>
 
               {/* Search Bar */}
-              <div className="relative max-w-xl mx-auto">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
+              <div className="relative max-w-xl">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4" />
                 <input
                   type="text"
                   placeholder="Search breeds..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 rounded-full bg-white border border-border focus:ring-2 focus:ring-primary/20 focus:outline-none"
+                  className="w-full pl-10 pr-4 py-2 text-sm bg-background border border-border focus:border-foreground focus:outline-none"
                 />
               </div>
             </div>
@@ -169,18 +169,18 @@ export default function BreedsPage() {
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
               {/* Sidebar Filters */}
               <div className="lg:col-span-1">
-                <div className="bg-card rounded-2xl p-6 shadow-md sticky top-24">
-                  <h3 className="font-semibold text-lg mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+                <div className="bg-background border border-border p-6 sticky top-24">
+                  <h3 className="text-sm font-medium mb-6">
                     Filters
                   </h3>
 
                   {/* Size Filter */}
                   <div className="mb-6">
-                    <label className="text-sm font-medium mb-2 block">Size</label>
+                    <label className="text-xs text-muted-foreground mb-2 block uppercase tracking-wide">Size</label>
                     <select
                       value={sizeFilter}
                       onChange={(e) => setSizeFilter(e.target.value)}
-                      className="w-full px-4 py-2 rounded-lg border border-border focus:ring-2 focus:ring-primary/20 focus:outline-none bg-white"
+                      className="w-full px-3 py-2 text-sm border border-border focus:border-foreground focus:outline-none bg-background"
                     >
                       <option value="all">All Sizes</option>
                       <option value="small">Small</option>
@@ -191,11 +191,11 @@ export default function BreedsPage() {
 
                   {/* Energy Filter */}
                   <div className="mb-6">
-                    <label className="text-sm font-medium mb-2 block">Energy Level</label>
+                    <label className="text-xs text-muted-foreground mb-2 block uppercase tracking-wide">Energy Level</label>
                     <select
                       value={energyFilter}
                       onChange={(e) => setEnergyFilter(e.target.value)}
-                      className="w-full px-4 py-2 rounded-lg border border-border focus:ring-2 focus:ring-primary/20 focus:outline-none bg-white"
+                      className="w-full px-3 py-2 text-sm border border-border focus:border-foreground focus:outline-none bg-background"
                     >
                       <option value="all">All Levels</option>
                       <option value="low">Low</option>
@@ -212,7 +212,7 @@ export default function BreedsPage() {
                       setEnergyFilter('all');
                       setSearchTerm('');
                     }}
-                    className="w-full px-4 py-2 text-sm font-medium text-primary hover:bg-primary/10 rounded-lg transition-colors"
+                    className="w-full px-3 py-2 text-sm text-foreground hover:opacity-60 border border-border transition-opacity"
                   >
                     Clear All Filters
                   </button>
@@ -227,22 +227,22 @@ export default function BreedsPage() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border">
                   {filteredBreeds.map((breed) => (
                     <div
                       key={breed.id}
-                      className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all hover:-translate-y-1 group"
+                      className="bg-background p-8 hover:bg-muted transition-colors group"
                     >
-                      <div className="relative h-56 bg-muted">
+                      <div className="relative h-48 bg-muted mb-6 overflow-hidden">
                         <Image
                           src={breed.image}
                           alt={breed.name}
                           fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                         />
                       </div>
-                      <div className="p-6">
-                        <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
+                      <div>
+                        <h3 className="text-lg mb-2">
                           {breed.name}
                         </h3>
                         <p className="text-muted-foreground text-sm mb-4">{breed.description}</p>
@@ -252,7 +252,7 @@ export default function BreedsPage() {
                           {breed.temperament.map((trait) => (
                             <span
                               key={trait}
-                              className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full"
+                              className="px-2 py-1 border border-border text-xs"
                             >
                               {trait}
                             </span>
@@ -260,24 +260,24 @@ export default function BreedsPage() {
                         </div>
 
                         {/* Characteristics */}
-                        <div className="space-y-3 pt-4 border-t border-border">
+                        <div className="space-y-2 pt-4 border-t border-border text-xs">
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <Activity className="w-4 h-4" />
+                            <div className="flex items-center gap-2 text-muted-foreground">
+                              <Activity className="w-3 h-3" />
                               <span>Energy</span>
                             </div>
                             {getEnergyIcon(breed.energy)}
                           </div>
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <Sparkles className="w-4 h-4" />
+                            <div className="flex items-center gap-2 text-muted-foreground">
+                              <Sparkles className="w-3 h-3" />
                               <span>Grooming</span>
                             </div>
                             {getGroomingIcon(breed.grooming)}
                           </div>
                           {breed.family && (
-                            <div className="flex items-center gap-2 text-sm text-accent">
-                              <Heart className="w-4 h-4 fill-accent" />
+                            <div className="flex items-center gap-2 text-muted-foreground">
+                              <Heart className="w-3 h-3" />
                               <span>Family Friendly</span>
                             </div>
                           )}

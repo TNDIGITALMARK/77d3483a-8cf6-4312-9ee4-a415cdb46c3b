@@ -58,72 +58,59 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative bg-secondary overflow-hidden">
-          <div className="container py-20 md:py-32">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
-                  Find Your
-                  <br />
-                  Feline Friend
-                </h1>
-                <p className="text-lg md:text-xl text-secondary-foreground/90">
-                  Discover the World of Cats
-                </p>
-                <div className="pt-4">
-                  <Link
-                    href="/breeds"
-                    className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold hover:bg-primary/90 transition-all hover:scale-105"
-                  >
-                    Explore Breeds
-                    <ArrowRight className="w-5 h-5" />
-                  </Link>
-                </div>
-              </div>
-              <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src="/generated/hero-cat.jpg"
-                  alt="Beautiful orange tabby cat"
-                  fill
-                  className="object-cover"
-                  priority
-                />
+        <section className="border-b border-border">
+          <div className="container py-24 md:py-32">
+            <div className="max-w-4xl mx-auto text-center space-y-8">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl leading-tight">
+                Discover the World of Cats
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+                Explore cat breeds, care tips, and connect with a community of feline enthusiasts
+              </p>
+              <div className="pt-4">
+                <Link
+                  href="/breeds"
+                  className="inline-flex items-center gap-2 bg-foreground text-background px-8 py-3 text-sm font-medium hover:opacity-80 transition-opacity"
+                >
+                  Explore Breeds
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </div>
         </section>
 
         {/* Cat Breeds Section */}
-        <section className="section">
+        <section className="section border-b border-border">
           <div className="container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-                Cat Breeds
+            <div className="mb-16">
+              <h2 className="text-3xl md:text-4xl mb-3">
+                Popular Breeds
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground">
                 Explore our most popular feline companions
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
               {featuredBreeds.map((breed) => (
                 <Link
                   key={breed.name}
                   href="/breeds"
-                  className="group bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all hover:-translate-y-1"
+                  className="group bg-background p-8 hover:bg-muted transition-colors"
                 >
-                  <div className="relative h-64 bg-muted">
+                  <div className="relative h-48 bg-muted mb-6 overflow-hidden">
                     <Image
                       src={breed.image}
                       alt={breed.name}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                     />
                   </div>
-                  <div className="p-6 text-center">
-                    <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
+                  <div>
+                    <h3 className="text-lg mb-1">
                       {breed.name}
                     </h3>
-                    <p className="text-muted-foreground">{breed.description}</p>
+                    <p className="text-sm text-muted-foreground">{breed.description}</p>
                   </div>
                 </Link>
               ))}
@@ -132,66 +119,66 @@ export default function Home() {
         </section>
 
         {/* Cat Care Tips Section */}
-        <section className="section bg-muted/30">
+        <section className="section border-b border-border">
           <div className="container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-                Cat Care Tips
+            <div className="mb-16">
+              <h2 className="text-3xl md:text-4xl mb-3">
+                Care Essentials
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground">
                 Essential guidance for happy, healthy cats
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
               {careTips.map((tip, index) => (
                 <div
                   key={index}
-                  className="bg-card p-8 rounded-2xl shadow-md hover:shadow-xl transition-all text-center"
+                  className="bg-background p-12 hover:bg-muted transition-colors"
                 >
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 text-primary rounded-full mb-4">
+                  <div className="mb-6 text-foreground/40">
                     {tip.icon}
                   </div>
-                  <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: 'var(--font-heading)' }}>
+                  <h3 className="text-lg mb-2">
                     {tip.title}
                   </h3>
-                  <p className="text-muted-foreground">{tip.description}</p>
+                  <p className="text-sm text-muted-foreground">{tip.description}</p>
                 </div>
               ))}
             </div>
-            <div className="text-center mt-10">
+            <div className="mt-12">
               <Link
                 href="/care"
-                className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all"
+                className="inline-flex items-center gap-2 text-sm hover:opacity-60 transition-opacity"
               >
                 View All Care Tips
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
         </section>
 
         {/* Photo Gallery Section */}
-        <section className="section" id="gallery">
+        <section className="section border-b border-border" id="gallery">
           <div className="container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-                Photo Gallery
+            <div className="mb-16">
+              <h2 className="text-3xl md:text-4xl mb-3">
+                Gallery
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground">
                 Beautiful moments with our feline friends
               </p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-border">
               {galleryImages.map((image, index) => (
                 <div
                   key={index}
-                  className="relative h-64 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all group cursor-pointer"
+                  className="relative h-80 overflow-hidden group cursor-pointer bg-muted"
                 >
                   <Image
                     src={image}
                     alt={`Cat photo ${index + 1}`}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                   />
                 </div>
               ))}
@@ -200,38 +187,36 @@ export default function Home() {
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="section bg-secondary">
+        <section className="section">
           <div className="container">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
-                Why Choose Us?
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl mb-16">
+                Join Our Community
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
-                <div className="text-center">
-                  <div className="text-4xl mb-3">📚</div>
-                  <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div>
+                  <h3 className="text-lg mb-2">
                     Expert Advice
                   </h3>
-                  <p className="text-secondary-foreground/90">
+                  <p className="text-sm text-muted-foreground">
                     Learn from certified cat care experts
                   </p>
                 </div>
-                <div className="text-center">
-                  <div className="text-4xl mb-3">🐱</div>
-                  <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
-                    Community & Support
+                <div>
+                  <h3 className="text-lg mb-2">
+                    Community Support
                   </h3>
-                  <p className="text-secondary-foreground/90">
+                  <p className="text-sm text-muted-foreground">
                     Connect with fellow cat lovers
                   </p>
                 </div>
               </div>
-              <div className="mt-10">
+              <div className="mt-16">
                 <Link
                   href="/breeds"
-                  className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-all hover:scale-105"
+                  className="inline-flex items-center gap-2 bg-foreground text-background px-8 py-3 text-sm font-medium hover:opacity-80 transition-opacity"
                 >
-                  Join Our Community
+                  Get Started
                 </Link>
               </div>
             </div>

@@ -185,17 +185,13 @@ export default function CarePage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-secondary py-16">
+        <section className="border-b border-border py-16">
           <div className="container">
-            <div className="text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
-                <Heart className="w-4 h-4" />
-                <span>Complete Care Guide</span>
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-                Cat Care Hub
+            <div className="max-w-3xl mx-auto">
+              <h1 className="text-4xl md:text-5xl mb-4">
+                Cat Care
               </h1>
-              <p className="text-lg text-secondary-foreground/90">
+              <p className="text-base text-muted-foreground">
                 Everything you need to know to keep your feline friend happy and healthy
               </p>
             </div>
@@ -203,45 +199,45 @@ export default function CarePage() {
         </section>
 
         {/* Care Guides Section */}
-        <section className="section">
+        <section className="section border-b border-border">
           <div className="container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-                Essential Care Guides
+            <div className="mb-16">
+              <h2 className="text-3xl md:text-4xl mb-3">
+                Essential Guides
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground">
                 Comprehensive tips for every aspect of cat care
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-border border border-border">
               {careGuides.map((guide) => {
                 const isExpanded = expandedId === guide.id;
                 return (
                   <div
                     key={guide.id}
-                    className="bg-card rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden"
+                    className="bg-background overflow-hidden"
                   >
                     <button
                       onClick={() => toggleExpand(guide.id)}
-                      className="w-full p-6 text-left hover:bg-muted/20 transition-colors"
+                      className="w-full p-8 text-left hover:bg-muted transition-colors"
                     >
                       <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center">
+                        <div className="flex-shrink-0 text-foreground/40">
                           {guide.icon}
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between mb-2">
-                            <span className="text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                            <span className="text-xs text-muted-foreground uppercase tracking-wide">
                               {guide.category}
                             </span>
                             {isExpanded ? (
-                              <ChevronUp className="w-5 h-5 text-muted-foreground flex-shrink-0" />
+                              <ChevronUp className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                             ) : (
-                              <ChevronDown className="w-5 h-5 text-muted-foreground flex-shrink-0" />
+                              <ChevronDown className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                             )}
                           </div>
-                          <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
+                          <h3 className="text-lg mb-2">
                             {guide.title}
                           </h3>
                           <p className="text-muted-foreground text-sm">{guide.description}</p>
@@ -250,11 +246,11 @@ export default function CarePage() {
                     </button>
 
                     {isExpanded && (
-                      <div className="px-6 pb-6 pt-0 animate-in slide-in-from-top-2 duration-200">
-                        <ul className="space-y-3 ml-16">
+                      <div className="px-8 pb-8 pt-0">
+                        <ul className="space-y-2 ml-10">
                           {guide.tips.map((tip, index) => (
-                            <li key={index} className="flex items-start gap-3 text-sm">
-                              <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                            <li key={index} className="flex items-start gap-3 text-sm text-muted-foreground">
+                              <span className="text-foreground">•</span>
                               <span>{tip}</span>
                             </li>
                           ))}
@@ -269,33 +265,33 @@ export default function CarePage() {
         </section>
 
         {/* Health Checklist Section */}
-        <section className="section bg-muted/30">
+        <section className="section border-b border-border">
           <div className="container">
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-                  Monthly Health Checklist
+              <div className="mb-16">
+                <h2 className="text-3xl md:text-4xl mb-3">
+                  Health Checklist
                 </h2>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-base text-muted-foreground">
                   Check these signs of good health regularly
                 </p>
               </div>
 
-              <div className="bg-card rounded-2xl shadow-lg p-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="border border-border p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {healthChecklistItems.map((item, index) => (
                     <div
                       key={index}
-                      className="flex items-center gap-3 p-4 bg-accent/10 rounded-xl"
+                      className="flex items-center gap-3 p-4 border border-border"
                     >
-                      <div className="text-accent">{item.icon}</div>
-                      <span className="font-medium">{item.label}</span>
+                      <div className="text-foreground/40">{item.icon}</div>
+                      <span className="text-sm">{item.label}</span>
                     </div>
                   ))}
                 </div>
-                <div className="mt-6 p-4 bg-primary/10 rounded-xl">
-                  <p className="text-sm text-center">
-                    <strong>Note:</strong> If you notice any changes in these areas, consult your veterinarian promptly.
+                <div className="mt-6 p-4 border border-border">
+                  <p className="text-sm text-muted-foreground text-center">
+                    If you notice any changes in these areas, consult your veterinarian promptly.
                   </p>
                 </div>
               </div>
@@ -306,57 +302,35 @@ export default function CarePage() {
         {/* Seasonal Care Section */}
         <section className="section">
           <div className="container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-                Seasonal Care Tips
+            <div className="mb-16">
+              <h2 className="text-3xl md:text-4xl mb-3">
+                Seasonal Care
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground">
                 Adjust your care routine throughout the year
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border">
               {seasonalCare.map((season, index) => (
                 <div
                   key={index}
-                  className="bg-card rounded-2xl shadow-md p-6 hover:shadow-lg transition-all"
+                  className="bg-background p-8 hover:bg-muted transition-colors"
                 >
-                  <div className="text-5xl mb-4 text-center">{season.icon}</div>
-                  <h3 className="text-xl font-semibold mb-4 text-center" style={{ fontFamily: 'var(--font-heading)' }}>
+                  <div className="text-3xl mb-4 opacity-40">{season.icon}</div>
+                  <h3 className="text-lg mb-4">
                     {season.season}
                   </h3>
                   <ul className="space-y-2">
                     {season.tips.map((tip, tipIndex) => (
-                      <li key={tipIndex} className="flex items-start gap-2 text-sm">
-                        <Clock className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <li key={tipIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <span className="text-foreground">•</span>
                         <span>{tip}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="section bg-secondary">
-          <div className="container">
-            <div className="text-center max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-                Need More Help?
-              </h2>
-              <p className="text-lg text-secondary-foreground/90 mb-8">
-                Join our community to connect with other cat owners and get expert advice
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-all hover:scale-105">
-                  Join Community
-                </button>
-                <button className="inline-flex items-center justify-center gap-2 bg-white text-foreground px-8 py-4 rounded-full font-semibold hover:bg-white/90 transition-all">
-                  Contact Expert
-                </button>
-              </div>
             </div>
           </div>
         </section>
